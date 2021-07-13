@@ -1,11 +1,8 @@
 package com.example.pokemon.client
 
-import android.telecom.Call
-import com.example.pokemon.response.PokemonListResponse
 import com.example.pokemon.service.PokemonAPI
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.gson.GsonConverterFactory.create
 
 
 class ApiClient {

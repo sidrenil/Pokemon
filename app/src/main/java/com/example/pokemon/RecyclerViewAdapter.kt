@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemon.databinding.CardModelBinding
 import com.example.pokemon.response.PokemonListResponse
 
+
 class RecyclerViewAdapter(
     val pokemon: List<PokemonListResponse.Result>
 ) : RecyclerView.Adapter<PokemonViewHolder>() {

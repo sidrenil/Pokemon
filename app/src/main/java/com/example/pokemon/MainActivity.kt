@@ -1,13 +1,14 @@
 package com.example.pokemon
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.pokemon.client.ApiClient
 import com.example.pokemon.databinding.ActivityMainBinding
 import com.example.pokemon.response.PokemonListResponse
 import retrofit2.Response
+
 
 
 class MainActivity : AppCompatActivity() {

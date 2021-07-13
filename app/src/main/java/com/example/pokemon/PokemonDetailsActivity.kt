@@ -2,7 +2,6 @@ package com.example.pokemon
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.graphics.Palette
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -10,12 +9,10 @@ import com.bumptech.glide.Glide
 import com.example.pokemon.client.ApiClient
 import com.example.pokemon.databinding.ActivityPokemonDetailsBinding
 import com.example.pokemon.response.PokemonDetailResponse
-import com.example.pokemon.service.PokemonAPI
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 
 class PokemonDetailsActivity : AppCompatActivity() {
@@ -79,7 +76,7 @@ class PokemonDetailsActivity : AppCompatActivity() {
                         pokemonAttack?.baseStat?.toFloat() ?: 0f
 
                     val pokemonDefensive =
-                        pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.DEFENSİVE.statName }
+                        pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.DEFENSIVE.statName }
                     binding.pokemonDefensiveProgress.labelText =
                         pokemonDefensive?.baseStat.toString()
                     binding.pokemonDefensiveProgress.progress =
