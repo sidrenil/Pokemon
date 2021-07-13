@@ -2,16 +2,13 @@ package com.example.pokemon
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telecom.Call
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.pokemon.client.ApiClient
 import com.example.pokemon.databinding.ActivityMainBinding
 import com.example.pokemon.response.PokemonListResponse
-import com.example.pokemon.service.PokemonAPI
 import retrofit2.Response
-import java.util.jar.Attributes
-import javax.security.auth.callback.Callback
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

@@ -1,14 +1,12 @@
 package com.example.pokemon
 
-import android.widget.ImageView
-import android.widget.TextView
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
-
 import com.example.pokemon.databinding.CardModelBinding
 import com.example.pokemon.response.PokemonListResponse
-import java.net.URL
+
 
 class PokemonViewHolder(val binding: CardModelBinding) : RecyclerView.ViewHolder(
     binding.root
@@ -28,6 +26,15 @@ class PokemonViewHolder(val binding: CardModelBinding) : RecyclerView.ViewHolder
                 .load(getImageUrl(pokemonModel.url))
                 .placeholder(circularProgressDrawable)
                 .into(binding.imageView)
+
+
+            binding.imageView.setOnClickListener { v ->
+                val intent = Intent(binding.root.context, PokemonDetailsActivity::class.java)
+                intent.putExtra("name", it.name)
+                intent.putExtra("url", getImageUrl(it.url))
+                binding.root.context.startActivity(intent)
+            }
+
         }
 
     }
