@@ -2,13 +2,17 @@ package com.example.pokemon
 
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.graphics.Palette
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.example.pokemon.client.ApiClient
 import com.example.pokemon.databinding.ActivityPokemonDetailsBinding
 import com.example.pokemon.response.PokemonDetailResponse
 import com.example.pokemon.service.PokemonAPI
+import com.github.florent37.glidepalette.BitmapPalette
+import com.github.florent37.glidepalette.GlidePalette
 import retrofit2.Call
 import retrofit2.Response
 import javax.security.auth.callback.Callback
@@ -28,13 +32,27 @@ class PokemonDetailsActivity : AppCompatActivity() {
         val detailsName = intent.getStringExtra("name")
         binding.pokemonDetailsName.text = detailsName
 
+        val detailsImage = intent.getStringExtra("url")
+        Glide.with(this)
+            .load(detailsImage)
+            .listener(
+                GlidePalette.with(detailsImage)
+                    .use(BitmapPalette.Profile.MUTED_LIGHT)
+                    .intoCallBack { palette ->
+                        val rgb = palette?.dominantSwatch?.rgb
+                        if (rgb != null) {
+                            binding.frameLayout.setBackgroundColor(rgb)
+                        }
+                    }
+            )
+            .into(binding.pokemonImage)
+        fetchDetailData(detailsName!!)
     }
 
     private fun fetchDetailData(name: String) {
-        ApiClient.create(PokemonAPI::class.java)
+        ApiClient.create()
             .getPokemonDetailResponse(name)
-            .enqueue(object : Callback<PokemonDetailResponse>,
-                retrofit2.Callback<PokemonDetailResponse> {
+            .enqueue(object : retrofit2.Callback<PokemonDetailResponse> {
                 override fun onResponse(
                     call: Call<PokemonDetailResponse>,
                     response: Response<PokemonDetailResponse>
@@ -83,6 +101,6 @@ class PokemonDetailsActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<PokemonDetailResponse>, t: Throwable) {
                     t.message?.let { Log.d("error", it) }
                 }
-                })
+            })
     }
 }
