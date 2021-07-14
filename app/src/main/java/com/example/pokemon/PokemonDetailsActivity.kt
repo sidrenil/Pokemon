@@ -12,6 +12,7 @@ import com.example.pokemon.response.PokemonDetailResponse
 import com.github.florent37.glidepalette.BitmapPalette
 import com.github.florent37.glidepalette.GlidePalette
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 
@@ -49,7 +50,7 @@ class PokemonDetailsActivity : AppCompatActivity() {
     private fun fetchDetailData(name: String) {
         ApiClient.create()
             .getPokemonDetailResponse(name)
-            .enqueue(object : retrofit2.Callback<PokemonDetailResponse> {
+            .enqueue(object : Callback<PokemonDetailResponse> {
                 override fun onResponse(
                     call: Call<PokemonDetailResponse>,
                     response: Response<PokemonDetailResponse>
@@ -74,19 +75,16 @@ class PokemonDetailsActivity : AppCompatActivity() {
                     binding.pokemonAttackProgress.progress =
                         pokemonAttack?.baseStat?.toFloat() ?: 0f
 
-                    val defensePokemon =
-                        pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.DEFENSIVE.statName }
-                    binding.pokemonDefensiveProgress.labelText =
-                        defensePokemon?.baseStat.toString()
-                    binding.pokemonDefensiveProgress.progress =
-                        defensePokemon?.baseStat?.toFloat() ?: 0f
-
                     val pokemonSpeed =
                         pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.SPEED.statName }
-                    binding.pokemonSpeedProgress.labelText =
-                        pokemonSpeed?.baseStat.toString()
-                    binding.pokemonSpeedProgress.progress =
-                        pokemonSpeed?.baseStat?.toFloat() ?: 0f
+                    binding.pokemonSpeedProgress.labelText = pokemonSpeed?.baseStat.toString()
+                    binding.pokemonSpeedProgress.progress = pokemonSpeed?.baseStat?.toFloat() ?: 0f
+
+
+                    val pokemonDefensive = pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.DEFENSIVE.statName }
+                    binding.pokemonDefensiveProgress.labelText = pokemonDefensive?.baseStat.toString()
+                    binding.pokemonDefensiveProgress.progress = pokemonDefensive?.baseStat?.toFloat() ?: 0f
+
 
                     binding.pokemonExpProgress.labelText =
                         pokemonResponseDetail?.baseExperience.toString()

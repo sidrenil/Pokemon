@@ -8,15 +8,15 @@ import androidx.databinding.DataBindingUtil
 import com.example.pokemon.client.ApiClient
 import com.example.pokemon.databinding.ActivityMainBinding
 import com.example.pokemon.response.PokemonListResponse
-import com.example.pokemon.service.PokemonAPI
+import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    var page = 0
-    val limit = 20
+    private var page = 0
+    private val limit = 20
     val pokemon = ArrayList<PokemonListResponse.Result>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,9 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchPokemonData(offset: Int) {
         ApiClient.create().getNames(limit, offset)
-            .enqueue(object : retrofit2.Callback<PokemonListResponse> {
+            .enqueue(object : Callback<PokemonListResponse> {
                 override fun onResponse(
-                    call: retrofit2.Call<PokemonListResponse>,
+                    call: Call<PokemonListResponse>,
                     response: Response<PokemonListResponse>,
                 ) {
                     val pokemonResponse = response.body()
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                override fun onFailure(call: retrofit2.Call<PokemonListResponse>, t: Throwable) {
+                override fun onFailure(call: Call<PokemonListResponse>, t: Throwable) {
                     t.message?.let { Log.d("Error", it) }
                 }
 

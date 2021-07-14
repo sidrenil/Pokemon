@@ -134,7 +134,7 @@
             app:progressView_colorBackground="@color/white"
             app:progressView_colorProgress="#C517E3"
             app:progressView_labelSize="10dp"
-            app:progressView_max="200"
+            app:progressView_max="400"
             app:progressView_radius="12dp" />
 
         <TextView
@@ -164,8 +164,9 @@
             app:progressView_colorBackground="@color/white"
             app:progressView_colorProgress="#E40808"
             app:progressView_labelSize="10dp"
-            app:progressView_max="200"
+            app:progressView_max="400"
             app:progressView_radius="12dp" />
+
 
         <TextView
             android:id="@+id/pokemonDefensive"
@@ -180,22 +181,22 @@
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemonAttack" />
-
         <com.skydoves.progressview.ProgressView
             android:id="@+id/pokemonDefensiveProgress"
             android:layout_width="0dp"
             android:layout_height="25dp"
-            android:layout_marginStart="41dp"
+            android:layout_marginStart="37dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/pokemonDefensive"
             app:layout_constraintTop_toBottomOf="@id/pokemonAttackProgress"
             app:progressView_colorBackground="@color/white"
-            app:progressView_colorProgress="#FF9A04"
+            app:progressView_colorProgress="#01F60B"
             app:progressView_labelSize="10dp"
-            app:progressView_max="200"
+            app:progressView_max="400"
             app:progressView_radius="12dp" />
+
 
         <TextView
             android:id="@+id/pokemonSpeed"
@@ -211,6 +212,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemonDefensive" />
 
+
         <com.skydoves.progressview.ProgressView
             android:id="@+id/pokemonSpeedProgress"
             android:layout_width="0dp"
@@ -224,7 +226,7 @@
             app:progressView_colorBackground="@color/white"
             app:progressView_colorProgress="#01F60B"
             app:progressView_labelSize="10dp"
-            app:progressView_max="200"
+            app:progressView_max="400"
             app:progressView_radius="12dp" />
 
         <TextView
@@ -254,7 +256,7 @@
             app:progressView_colorBackground="@color/white"
             app:progressView_colorProgress="#CB0AF3A9"
             app:progressView_labelSize="10dp"
-            app:progressView_max="200"
+            app:progressView_max="400"
             app:progressView_radius="12dp" />
 
 

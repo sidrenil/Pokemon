@@ -8,7 +8,7 @@ import com.example.pokemon.databinding.CardModelBinding
 import com.example.pokemon.response.PokemonListResponse
 
 
-class PokemonViewHolder(val binding: CardModelBinding) : RecyclerView.ViewHolder(
+class PokemonViewHolder(private val binding: CardModelBinding) : RecyclerView.ViewHolder(
     binding.root
 ) {
     fun bind(pokemonModel: PokemonListResponse.Result) {
