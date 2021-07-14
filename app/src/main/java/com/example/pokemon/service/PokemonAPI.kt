@@ -10,8 +10,6 @@ import retrofit2.http.Query
 
 
 interface PokemonAPI {
-    //https://pokeapi.co/api/v2/pokemon/
-
     @GET("pokemon")
     fun getNames(
         @Query("limit") limit: Int = 20,
@@ -19,6 +17,5 @@ interface PokemonAPI {
     ): Call<PokemonListResponse>
 
     @GET("pokemon/{name}")
-    fun getPokemonDetailResponse(@Path("name") name:String): Call<PokemonDetailResponse>
-
+    fun getPokemonDetailResponse(@Path("name") name: String): Call<PokemonDetailResponse>
 }

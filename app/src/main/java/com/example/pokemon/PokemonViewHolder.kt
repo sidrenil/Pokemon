@@ -11,7 +11,6 @@ import com.example.pokemon.response.PokemonListResponse
 class PokemonViewHolder(val binding: CardModelBinding) : RecyclerView.ViewHolder(
     binding.root
 ) {
-
     fun bind(pokemonModel: PokemonListResponse.Result) {
 
         pokemonModel.let {
@@ -26,7 +25,6 @@ class PokemonViewHolder(val binding: CardModelBinding) : RecyclerView.ViewHolder
                 .load(getImageUrl(pokemonModel.url))
                 .placeholder(circularProgressDrawable)
                 .into(binding.imageView)
-
 
             binding.imageView.setOnClickListener { v ->
                 val intent = Intent(binding.root.context, PokemonDetailsActivity::class.java)
