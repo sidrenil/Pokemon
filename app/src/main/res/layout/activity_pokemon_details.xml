@@ -4,42 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="#E6B6B6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#E6B6B6">
 
         <FrameLayout
-            android:background="@color/teal_700"
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:background="@color/white"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="0dp">
 
 
-
-
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/appBar"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#FBE51D" />
-            </com.google.android.material.appbar.AppBarLayout>
+                android:background="#FBE51D" />
 
             <ImageView
                 android:id="@+id/back"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/back" />
+
             <ImageView
                 android:id="@+id/pokemonImage"
                 android:layout_width="150dp"
@@ -206,6 +196,7 @@
             app:progressView_labelSize="10dp"
             app:progressView_max="200"
             app:progressView_radius="12dp" />
+
         <TextView
             android:id="@+id/pokemonSpeed"
             android:layout_width="wrap_content"
@@ -219,6 +210,7 @@
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemonDefensive" />
+
         <com.skydoves.progressview.ProgressView
             android:id="@+id/pokemonSpeedProgress"
             android:layout_width="0dp"
@@ -234,6 +226,7 @@
             app:progressView_labelSize="10dp"
             app:progressView_max="200"
             app:progressView_radius="12dp" />
+
         <TextView
             android:id="@+id/pokemonExp"
             android:layout_width="wrap_content"
@@ -247,6 +240,7 @@
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemonSpeed" />
+
         <com.skydoves.progressview.ProgressView
             android:id="@+id/pokemonExpProgress"
             android:layout_width="0dp"

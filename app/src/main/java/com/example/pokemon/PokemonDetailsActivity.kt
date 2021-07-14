@@ -56,8 +56,8 @@ class PokemonDetailsActivity : AppCompatActivity() {
                 ) {
                     val pokemonResponseDetail = response.body()
 
-                    binding.pokemonWeightText.text = pokemonResponseDetail?.id.toString()
-                    binding.pokemonHeightText.text = pokemonResponseDetail?.id.toString()
+                    binding.pokemonWeightText.text = pokemonResponseDetail?.weight.toString()
+                    binding.pokemonHeightText.text = pokemonResponseDetail?.height.toString()
 
 
                     val pokemonHp =
@@ -69,18 +69,17 @@ class PokemonDetailsActivity : AppCompatActivity() {
 
                     val pokemonAttack =
                         pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.ATTACK.statName }
-
                     binding.pokemonAttackProgress.labelText =
                         pokemonAttack?.baseStat.toString()
                     binding.pokemonAttackProgress.progress =
                         pokemonAttack?.baseStat?.toFloat() ?: 0f
 
-                    val pokemonDefensive =
+                    val defensePokemon =
                         pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.DEFENSIVE.statName }
                     binding.pokemonDefensiveProgress.labelText =
-                        pokemonDefensive?.baseStat.toString()
+                        defensePokemon?.baseStat.toString()
                     binding.pokemonDefensiveProgress.progress =
-                        pokemonDefensive?.baseStat?.toFloat() ?: 0f
+                        defensePokemon?.baseStat?.toFloat() ?: 0f
 
                     val pokemonSpeed =
                         pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.SPEED.statName }

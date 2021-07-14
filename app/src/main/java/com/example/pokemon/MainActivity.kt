@@ -7,12 +7,14 @@ import androidx.databinding.DataBindingUtil
 import com.example.pokemon.client.ApiClient
 import com.example.pokemon.databinding.ActivityMainBinding
 import com.example.pokemon.response.PokemonListResponse
+import com.example.pokemon.service.PokemonAPI
+import retrofit2.Callback
 import retrofit2.Response
-
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
     val pokemon = ArrayList<PokemonListResponse.Result>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                     if (response.isSuccessful && response.body() != null) {
                         pokemon.addAll(it)
                         setAdapter(pokemon)
+
 
                     }
                 }
