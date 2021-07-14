@@ -81,9 +81,12 @@ class PokemonDetailsActivity : AppCompatActivity() {
                     binding.pokemonSpeedProgress.progress = pokemonSpeed?.baseStat?.toFloat() ?: 0f
 
 
-                    val pokemonDefensive = pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.DEFENSIVE.statName }
-                    binding.pokemonDefensiveProgress.labelText = pokemonDefensive?.baseStat.toString()
-                    binding.pokemonDefensiveProgress.progress = pokemonDefensive?.baseStat?.toFloat() ?: 0f
+                    val pokemonDefensive =
+                        pokemonResponseDetail?.stats?.find { it?.stat?.name == Stats.DEFENSIVE.statName }
+                    binding.pokemonDefensiveProgress.labelText =
+                        pokemonDefensive?.baseStat.toString()
+                    binding.pokemonDefensiveProgress.progress =
+                        pokemonDefensive?.baseStat?.toFloat() ?: 0f
 
 
                     binding.pokemonExpProgress.labelText =
